@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>プライバシーポリシー｜tomo design link</title>
+<meta name="og:locale" content="ja_JP">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--white:#F4F0E6;--off:#EDE8DA;--ink:#1A2744;--ink-mid:#2B3F6E;--ink-lt:#7A8BAA;--rule:#C8C0AE;--navy:#1A2744;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{background:var(--white);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.8;overflow-x:hidden;}
+#main-nav{position:fixed;inset:0 0 auto;z-index:300;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,4rem);transition:background .4s,border-color .4s;border-bottom:1px solid transparent;}
+#main-nav.scrolled{background:rgba(244,240,230,0.97);backdrop-filter:blur(16px);border-bottom-color:var(--rule);}
+#main-nav.solid{background:var(--white);border-bottom-color:var(--rule);}
+.nav-logo-rest{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;font-style:italic;letter-spacing:.02em;color:var(--navy);text-decoration:none;}
+#main-nav.solid .nav-logo-rest{color:var(--ink);}
+.nav-links{display:flex;gap:clamp(1.5rem,3vw,2.5rem);list-style:none;margin-left:auto;margin-right:clamp(1.5rem,3vw,2.5rem);}
+.nav-links a{font-size:.72rem;letter-spacing:.12em;color:var(--ink-mid);text-decoration:none;transition:opacity .2s;}
+.nav-links a:hover{opacity:.5;}
+.nav-links a.current{color:var(--ink);font-weight:500;border-bottom:1px solid var(--ink-lt);padding-bottom:2px;}
+.nav-cta{font-size:.72rem;letter-spacing:.1em;color:var(--ink);border:1px solid var(--ink);padding:.5rem 1.2rem;text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:opacity .3s;}
+.nav-cta:hover{opacity:.6;}
+.nav-burger{display:none;position:fixed;top:12px;right:clamp(1.5rem,5vw,4rem);flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:transparent;border:none;cursor:pointer;padding:0;z-index:310;}
+.nav-burger__line{display:block;width:22px;height:1px;background:var(--ink);transition:transform .3s,opacity .2s;}
+.nav-burger[aria-expanded="true"] .nav-burger__line:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.nav-burger[aria-expanded="true"] .nav-burger__line:nth-child(2){opacity:0;}
+.nav-burger[aria-expanded="true"] .nav-burger__line:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.nav-drawer{position:fixed;inset:0;background:var(--off);z-index:305;padding:5rem 2.5rem 3rem;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .5s cubic-bezier(.22,1,.36,1);}
+.nav-drawer.is-open{transform:translateX(0);}
+.nav-drawer__links{list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--rule);}
+.nav-drawer__links li{border-bottom:1px solid var(--rule);}
+.nav-drawer__links a{display:block;padding:1.2rem 0;font-family:'Noto Serif JP',serif;font-size:1.3rem;font-weight:200;color:var(--ink);text-decoration:none;transition:opacity .2s;}
+.nav-drawer__links a:hover{opacity:.4;}
+.nav-drawer__cta{margin-top:2.5rem;font-size:.72rem;letter-spacing:.12em;background:var(--navy);color:var(--white);text-decoration:none;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:opacity .2s;}
+.nav-drawer__cta:hover{opacity:.7;}
+.nav-drawer-scrim{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:304;opacity:0;transition:opacity .3s;}
+.nav-drawer-scrim.is-visible{opacity:1;}
+@media(max-width:1200px){.nav-links,.nav-cta{display:none;}.nav-burger{display:flex;}}
+@media(min-width:1201px){.nav-drawer,.nav-drawer-scrim{display:none;}}
+.page-hero{padding:clamp(7rem,14vw,11rem) clamp(1.5rem,6vw,5rem) clamp(3rem,6vw,5rem);border-bottom:1px solid var(--rule);max-width:100%;}
+.page-hero-inner{max-width:1100px;margin:0 auto;}
+.page-hero-kicker{font-size:.65rem;letter-spacing:.22em;color:var(--ink-lt);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;}
+.page-hero-kicker::before{content:'';display:block;width:30px;height:1px;background:var(--ink-lt);}
+.page-hero-heading{font-family:'Noto Serif JP',serif;font-size:clamp(2rem,5vw,4rem);font-weight:200;color:var(--ink);letter-spacing:.05em;line-height:1.4;word-break:keep-all;overflow-wrap:anywhere;}
+.page-hero-desc{margin-top:1.5rem;font-size:.88rem;color:var(--ink-lt);line-height:2;max-width:520px;}
+.sec-wrap{max-width:1100px;margin:0 auto;}
+.sec-kicker{font-size:.65rem;letter-spacing:.22em;color:var(--ink-lt);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;}
+.sec-kicker::before{content:'';display:block;width:30px;height:1px;background:var(--ink-lt);}
+.sec-heading{font-family:'Noto Serif JP',serif;font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:200;color:var(--ink);letter-spacing:.05em;margin-bottom:1.5rem;word-break:keep-all;overflow-wrap:anywhere;}
+.sec-body{font-size:.88rem;color:var(--ink-mid);line-height:2;margin-bottom:1.5rem;}
+.fade{opacity:0;transform:translateY(24px);transition:opacity 1.2s cubic-bezier(.25,.1,.25,1),transform 1.2s cubic-bezier(.25,.1,.25,1);}
+.fade.in{opacity:1;transform:none;}
+.legal-section{padding:clamp(3rem,8vw,6rem) clamp(1.5rem,6vw,5rem);}
+.legal-table{width:100%;border-collapse:collapse;margin-top:1.5rem;}
+.legal-table th,.legal-table td{text-align:left;padding:1.1rem 1.5rem;border-bottom:1px solid var(--rule);font-size:.85rem;line-height:1.9;vertical-align:top;}
+.legal-table th{width:180px;font-weight:400;color:var(--ink-lt);font-size:.72rem;letter-spacing:.08em;white-space:nowrap;background:var(--off);}
+.legal-table td{color:var(--ink-mid);}
+.legal-table tr:first-child th,.legal-table tr:first-child td{border-top:1px solid var(--rule);}
+@media(max-width:580px){.legal-table th{display:block;padding-bottom:.3rem;border-bottom:none;font-size:.68rem;width:auto;}.legal-table td{display:block;padding-top:.2rem;padding-left:1.5rem;}.legal-table tr{display:block;border-bottom:1px solid var(--rule);padding:.7rem 0;}}
+.journal-list{border-top:1px solid var(--rule);}
+.journal-item{display:grid;grid-template-columns:120px 80px 1fr auto;gap:1.5rem;align-items:center;padding:1.4rem 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink);transition:opacity .2s;}
+.journal-item:hover{opacity:.45;}
+@media(max-width:680px){.journal-item{grid-template-columns:1fr auto;grid-template-rows:auto auto;}.journal-tag{order:-1;}.journal-title{grid-column:1;font-size:.9rem;}.journal-date{grid-column:2;grid-row:1;}}
+.journal-date{font-size:.7rem;color:var(--ink-lt);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+.journal-tag{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-lt);border:1px solid var(--rule);padding:.2rem .6rem;width:fit-content;}
+.journal-title{font-size:.9rem;font-weight:400;color:var(--ink);}
+.journal-arrow{width:16px;height:16px;opacity:.3;flex-shrink:0;}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule);}
+@media(max-width:780px){.project-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.project-grid{grid-template-columns:1fr;}}
+.project-card{background:var(--off);position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer;}
+.project-card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.25,.46,.45,.94);}
+.project-card-ph{position:absolute;inset:0;width:100%;height:100%;transition:transform .7s cubic-bezier(.25,.46,.45,.94);}
+.project-card:hover .project-card-img,.project-card:hover .project-card-ph{transform:scale(1.03);}
+.project-card-info{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;background:linear-gradient(to top,rgba(10,15,30,.7) 0%,transparent 60%);opacity:0;transition:opacity .35s;}
+.project-card:hover .project-card-info{opacity:1;}
+.project-card-tag{font-size:.58rem;letter-spacing:.15em;color:rgba(244,240,230,.65);margin-bottom:.4rem;}
+.project-card-title{font-family:'Noto Serif JP',serif;font-size:.95rem;font-weight:300;color:var(--white);}
+.service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule);}
+@media(max-width:600px){.service-grid{grid-template-columns:1fr;}}
+.service-card{padding:2.5rem 2rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);transition:background .3s;}
+.service-card:hover{background:var(--off);}
+.service-icon{width:30px;height:30px;margin-bottom:1.4rem;color:var(--ink);}
+.service-icon svg{width:100%;height:100%;}
+.service-title{font-size:.88rem;font-weight:500;letter-spacing:.05em;margin-bottom:.8rem;color:var(--ink);}
+.service-body{font-size:.78rem;color:var(--ink-mid);line-height:1.9;}
+.pricing-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);}
+@media(max-width:680px){.pricing-plans{grid-template-columns:1fr;}}
+.pricing-plan{padding:2.5rem 2rem;border-right:1px solid var(--rule);}
+.pricing-plan:last-child{border-right:none;}
+@media(max-width:680px){.pricing-plan{border-right:none;border-bottom:1px solid var(--rule);}.pricing-plan:last-child{border-bottom:none;}}
+.plan-name{font-size:.7rem;letter-spacing:.18em;color:var(--ink-lt);text-transform:uppercase;margin-bottom:1.2rem;}
+.plan-price{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--ink);line-height:1;margin-bottom:.4rem;}
+.plan-price-note{font-size:.72rem;color:var(--ink-lt);margin-bottom:1.5rem;}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem;}
+.plan-features li{font-size:.78rem;color:var(--ink-mid);padding-left:1rem;position:relative;}
+.plan-features li::before{content:'—';position:absolute;left:0;color:var(--ink-lt);font-size:.65rem;}
+.plan-cta{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.1em;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:.2rem;transition:opacity .2s,border-color .2s;}
+.plan-cta:hover{opacity:.5;border-color:var(--ink);}
+.pricing-note{margin-top:2.5rem;padding:1.5rem 2rem;background:var(--off);border-left:3px solid var(--ink-lt);font-size:.8rem;color:var(--ink-mid);line-height:1.9;}
+.form-wrap{display:flex;flex-direction:column;gap:1.5rem;}
+.form-group{display:flex;flex-direction:column;gap:.5rem;}
+.form-label{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-lt);}
+.form-req{font-size:.58rem;color:var(--ink-lt);margin-left:.4rem;}
+.form-input,.form-textarea,.form-select{background:var(--off);border:1px solid var(--rule);padding:.85rem 1rem;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s;width:100%;border-radius:0;appearance:none;}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--navy);}
+.form-textarea{min-height:160px;resize:vertical;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+@media(max-width:600px){.form-row{grid-template-columns:1fr;}}
+.form-submit{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;letter-spacing:.12em;color:var(--white);background:var(--navy);padding:1rem 2.5rem;border:none;cursor:pointer;transition:opacity .2s;font-family:'DM Sans',sans-serif;}
+.form-submit:hover{opacity:.7;}
+.form-agree{font-size:.75rem;color:var(--ink-lt);line-height:1.8;}
+.form-agree a{color:var(--ink);text-decoration:underline;}
+footer{padding:clamp(3rem,6vw,5rem) clamp(1.5rem,6vw,5rem) 2rem;background:var(--navy);color:rgba(244,240,230,.55);}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:clamp(2rem,5vw,4rem);padding-bottom:3rem;border-bottom:1px solid rgba(244,240,230,.12);margin-bottom:2rem;}
+@media(max-width:700px){.footer-top{grid-template-columns:1fr;gap:2.5rem;}}
+.footer-brand-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;font-style:italic;color:var(--white);margin-bottom:1rem;}
+.footer-tagline{font-size:.78rem;line-height:1.8;color:rgba(244,240,230,.45);max-width:240px;}
+.footer-col-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,240,230,.35);margin-bottom:1.5rem;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.9rem;}
+.footer-links a{font-size:.85rem;color:rgba(244,240,230,.6);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--white);}
+.footer-studio-info{display:flex;flex-direction:column;gap:.9rem;}
+.studio-line{display:flex;align-items:center;gap:.7rem;font-size:.8rem;color:rgba(244,240,230,.5);}
+.studio-line svg{width:14px;height:14px;flex-shrink:0;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-size:.65rem;color:rgba(244,240,230,.28);}
+.footer-bottom-links{display:flex;gap:1.5rem;}
+.footer-bottom-links a{font-size:.65rem;color:rgba(244,240,230,.35);text-decoration:none;transition:color .2s;}
+.footer-bottom-links a:hover{color:rgba(244,240,230,.8);}
+html,body{overflow-x:hidden;max-width:100%;}
+*,*::before,*::after{max-width:100%;}
+:lang(ja) p,:lang(ja) h1,:lang(ja) h2,:lang(ja) h3{word-break:keep-all;overflow-wrap:anywhere;}
+
+/* ══ ROUNDED CORNERS ══ */
+.nav-cta{border-radius:999px!important;padding:.5rem 1.4rem!important;}
+.nav-drawer__cta{border-radius:16px!important;}
+.journal-tag{border-radius:999px!important;}
+.contact-info{border-radius:16px!important;}
+.process-steps{border-radius:16px!important;overflow:hidden!important;}
+.service-grid{border-radius:16px!important;overflow:hidden!important;}
+.pricing-plans{border-radius:16px!important;overflow:hidden!important;}
+.project-grid{border-radius:16px!important;overflow:hidden!important;}
+.form-input,.form-textarea,.form-select{border-radius:10px!important;}
+.form-submit{border-radius:999px!important;}
+.proj-visit-btn{border-radius:999px!important;}
+.proj-showcase{border-radius:20px!important;overflow:hidden!important;}
+
+</style>
+<meta property="og:image" content="https://tomodesignlink.pages.dev/hero-ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://tomodesignlink.pages.dev/hero-ogp.jpg">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZMEHPTMR9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ZMEHPTMR9');
+</script>
+</head>
+<body data-page="">
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo-rest">tomo design link.</a>
+  <ul class="nav-links">
+    <li><a href="thoughts.html" data-page="thoughts">Thoughts</a></li>
+    <li><a href="project.html" data-page="project">Project</a></li>
+    <li><a href="service.html" data-page="service">Services</a></li>
+    <li><a href="pricing.html" data-page="pricing">Pricing</a></li>
+    <li><a href="journal.html" data-page="journal">Journal</a></li>
+    <li><a href="contact.html" data-page="contact">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">
+    お問い合わせ
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M1 10L10 1M10 1H3M10 1V8" stroke="currentColor" stroke-width="1.3"/></svg>
+  </a>
+</nav>
+<button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="nav-drawer" aria-label="メニューを開く">
+  <span class="nav-burger__line"></span><span class="nav-burger__line"></span><span class="nav-burger__line"></span>
+</button>
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <ul class="nav-drawer__links">
+    <li><a href="thoughts.html">Thoughts</a></li>
+    <li><a href="project.html">Project</a></li>
+    <li><a href="service.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="journal.html">Journal</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-drawer__cta">
+    お問い合わせ
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M1 10L10 1M10 1H3M10 1V8" stroke="currentColor" stroke-width="1.3"/></svg>
+  </a>
+</div>
+<div class="nav-drawer-scrim" id="nav-drawer-scrim" hidden></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-kicker">Privacy Policy</p>
+    <h1 class="page-hero-heading">プライバシーポリシー</h1>
+  </div>
+</div>
+<section class="legal-section">
+  <div class="sec-wrap fade">
+    <p class="sec-body">tomo design link（以下「当スタジオ」）は、お客様の個人情報の保護を重要な責務と考え、以下のとおりプライバシーポリシーを定めます。</p>
+    <table class="legal-table">
+      <tbody>
+        <tr><th>個人情報の定義</th><td>本ポリシーにおける「個人情報」とは、生存する個人に関する情報であって、氏名・メールアドレスなどにより特定の個人を識別できる情報をいいます。</td></tr>
+        <tr><th>収集する情報</th><td>お問い合わせフォームからご連絡いただく際に、氏名・会社名・メールアドレス・お問い合わせ内容を収集します。</td></tr>
+        <tr><th>利用目的</th><td>収集した個人情報は、お問い合わせへの回答・制作業務の遂行・アフターサポートのご連絡にのみ使用します。ご本人の同意なく第三者への提供は行いません。</td></tr>
+        <tr><th>第三者提供</th><td>法令に基づく場合を除き、ご本人の同意なく第三者に個人情報を提供することはありません。</td></tr>
+        <tr><th>安全管理</th><td>個人情報への不正アクセス・紛失・漏洩等を防止するため、適切な安全管理措置を講じます。</td></tr>
+        <tr><th>Cookie・アクセス解析</th><td>当サイトではGoogle アナリティクスを使用しています。Google アナリティクスはCookieを使用しますが、個人を特定する情報は収集しません。収集したデータはサイト改善のために使用します。</td></tr>
+        <tr><th>開示・訂正・削除</th><td>ご自身の個人情報の開示・訂正・削除をご希望の場合は、お問い合わせフォームよりご連絡ください。合理的な範囲で対応いたします。</td></tr>
+        <tr><th>ポリシーの変更</th><td>本ポリシーは予告なく変更する場合があります。変更後のポリシーは当ページに掲載した時点から効力を発するものとします。</td></tr>
+        <tr><th>お問い合わせ</th><td>本ポリシーに関するお問い合わせは tomodesignlink@gmail.com までご連絡ください。</td></tr>
+        <tr><th>制定日</th><td>2026年3月15日</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-logo">tomo design link.</div>
+      <p class="footer-tagline">ことばを丁寧に聴き、
+やさしさと信頼をかたちにする。</p>
+    </div>
+    <div>
+      <div class="footer-col-label">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="thoughts.html">Thoughts</a></li>
+        <li><a href="project.html">Project</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-label">Studio</div>
+      <div class="footer-studio-info">
+        <div class="studio-line">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="7" cy="6" r="3"/><path d="M7 1C4 1 1 3.5 1 6.5 1 10 7 14 7 14s6-4 6-7.5C13 3.5 10 1 7 1z"/></svg>
+          愛知県　一宮市
+        </div>
+        <div class="studio-line">
+          <svg viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1" width="12" height="10" rx="1.5"/><path d="M1 3l6 4 6-4"/></svg>
+          tomodesignlink@gmail.com
+        </div>
+        <div class="studio-line">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="7" cy="7" r="6"/><path d="M7 4v3l2 2"/></svg>
+          Mon — Fri / 09:00 — 18:00
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 tomo design link. All rights reserved.</span>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="tokusho.html">特定商取引法</a>
+      <a href="terms.html">利用規約</a>
+    </div>
+  </div>
+</footer>
+<script>
+const nav=document.getElementById('main-nav');
+nav.classList.add('solid');
+const page=document.body.dataset.page;
+if(page){const a=document.querySelector('.nav-links a[data-page="'+page+'"]');if(a)a.classList.add('current');}
+const burger=document.getElementById('nav-burger');
+const drawer=document.getElementById('nav-drawer');
+const scrim=document.getElementById('nav-drawer-scrim');
+function closeDrawer(){burger.setAttribute('aria-expanded','false');drawer.classList.remove('is-open');drawer.setAttribute('aria-hidden','true');scrim.classList.remove('is-visible');scrim.hidden=true;document.body.style.overflow='';}
+function openDrawer(){burger.setAttribute('aria-expanded','true');drawer.classList.add('is-open');drawer.setAttribute('aria-hidden','false');scrim.hidden=false;requestAnimationFrame(()=>scrim.classList.add('is-visible'));document.body.style.overflow='hidden';}
+burger.addEventListener('click',()=>{burger.getAttribute('aria-expanded')==='true'?closeDrawer():openDrawer();});
+scrim.addEventListener('click',closeDrawer);
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeDrawer));
+document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closeDrawer();});
+window.matchMedia('(min-width:901px)').addEventListener('change',(e)=>{if(e.matches)closeDrawer();});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.1});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

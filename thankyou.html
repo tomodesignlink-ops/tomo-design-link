@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>送信完了｜tomo design link</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--white:#F4F0E6;--off:#EDE8DA;--ink:#1A2744;--ink-mid:#2B3F6E;--ink-lt:#7A8BAA;--rule:#C8C0AE;--navy:#1A2744;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{background:var(--white);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.8;overflow-x:hidden;min-height:100svh;display:flex;flex-direction:column;}
+
+/* NAV */
+#main-nav{position:fixed;inset:0 0 auto;z-index:300;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,4rem);background:var(--white);border-bottom:1px solid var(--rule);}
+.nav-logo-rest{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;font-style:italic;letter-spacing:.02em;color:var(--ink);text-decoration:none;}
+.nav-burger{display:none;position:fixed;top:12px;right:clamp(1.5rem,5vw,4rem);flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:transparent;border:none;cursor:pointer;padding:0;z-index:310;}
+.nav-burger__line{display:block;width:22px;height:1px;background:var(--ink);transition:transform .3s,opacity .2s;}
+.nav-burger[aria-expanded="true"] .nav-burger__line:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.nav-burger[aria-expanded="true"] .nav-burger__line:nth-child(2){opacity:0;}
+.nav-burger[aria-expanded="true"] .nav-burger__line:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.nav-links{display:flex;gap:clamp(1.5rem,3vw,2.5rem);list-style:none;margin-left:auto;margin-right:clamp(1.5rem,3vw,2.5rem);}
+.nav-links a{font-size:.72rem;letter-spacing:.12em;color:var(--ink-mid);text-decoration:none;transition:opacity .2s;}
+.nav-links a:hover{opacity:.5;}
+.nav-cta{font-size:.72rem;letter-spacing:.1em;color:var(--ink);border:1px solid var(--ink);padding:.5rem 1.4rem;text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:opacity .3s;border-radius:999px;}
+.nav-cta:hover{opacity:.6;}
+.nav-drawer{position:fixed;inset:0;background:var(--off);z-index:305;padding:5rem 2.5rem 3rem;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .5s cubic-bezier(.22,1,.36,1);}
+.nav-drawer.is-open{transform:translateX(0);}
+
+
+
+
+
+.nav-drawer__links{list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--rule);}
+.nav-drawer__links li{border-bottom:1px solid var(--rule);}
+.nav-drawer__links a{display:block;padding:1.2rem 0;font-family:'Noto Serif JP',serif;font-size:1.3rem;font-weight:200;color:var(--ink);text-decoration:none;transition:opacity .2s;}
+.nav-drawer__links a:hover{opacity:.4;}
+.nav-drawer__cta{margin-top:2.5rem;font-size:.72rem;letter-spacing:.12em;background:var(--navy);color:var(--white);text-decoration:none;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:opacity .2s;border-radius:16px;}
+.nav-drawer__cta:hover{opacity:.7;}
+.nav-drawer-scrim{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:304;opacity:0;transition:opacity .3s;}
+.nav-drawer-scrim.is-visible{opacity:1;}
+@media(max-width:1200px){.nav-links,.nav-cta{display:none;}.nav-burger{display:flex;}}
+@media(min-width:1201px){.nav-drawer,.nav-drawer-scrim{display:none;}}
+
+/* MAIN */
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(6rem,12vw,10rem) clamp(1.5rem,6vw,5rem);}
+.ty-wrap{max-width:560px;width:100%;}
+.ty-icon{width:48px;height:48px;border:1px solid var(--rule);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:2rem;}
+.ty-icon svg{width:20px;height:20px;color:var(--ink);}
+.ty-kicker{font-size:.65rem;letter-spacing:.22em;color:var(--ink-lt);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;}
+.ty-kicker::before{content:'';display:block;width:30px;height:1px;background:var(--ink-lt);}
+.ty-heading{font-family:'Noto Serif JP',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:200;color:var(--ink);letter-spacing:.05em;line-height:1.5;margin-bottom:1.5rem;word-break:keep-all;}
+.ty-body{font-size:.88rem;color:var(--ink-mid);line-height:2;margin-bottom:2.5rem;}
+.ty-btn{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;letter-spacing:.12em;color:var(--white);background:var(--navy);padding:1rem 2rem;text-decoration:none;transition:opacity .2s;border-radius:999px;}
+.ty-btn:hover{opacity:.7;}
+
+/* FOOTER */
+footer{padding:clamp(2rem,4vw,3rem) clamp(1.5rem,6vw,5rem);background:var(--navy);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-size:.65rem;color:rgba(244,240,230,.28);}
+.footer-bottom-links{display:flex;gap:1.5rem;}
+.footer-bottom-links a{font-size:.65rem;color:rgba(244,240,230,.35);text-decoration:none;transition:color .2s;}
+.footer-bottom-links a:hover{color:rgba(244,240,230,.8);}
+
+/* FADE */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 3.8s cubic-bezier(.16,1,.3,1),transform 3.8s cubic-bezier(.16,1,.3,1);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.15s;} .d2{transition-delay:.3s;} .d3{transition-delay:.45s;}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZMEHPTMR9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ZMEHPTMR9');
+</script>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo-rest">tomo design link.</a>
+  <ul class="nav-links">
+    <li><a href="thoughts.html">Thoughts</a></li>
+    <li><a href="project.html">Project</a></li>
+    <li><a href="service.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="journal.html">Journal</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">お問い合わせ <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M1 10L10 1M10 1H3M10 1V8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+</nav>
+<button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="nav-drawer" aria-label="メニューを開く">
+  <span class="nav-burger__line"></span><span class="nav-burger__line"></span><span class="nav-burger__line"></span>
+</button>
+
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <ul class="nav-drawer__links">
+    <li><a href="thoughts.html">Thoughts</a></li>
+    <li><a href="project.html">Project</a></li>
+    <li><a href="service.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="journal.html">Journal</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-drawer__cta">お問い合わせ <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M1 10L10 1M10 1H3M10 1V8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+</div>
+<div class="nav-drawer-scrim" id="nav-drawer-scrim" hidden></div>
+
+<main>
+  <div class="ty-wrap">
+    <div class="ty-icon reveal">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="3 10 8 15 17 6"/></svg>
+    </div>
+    <p class="ty-kicker reveal d1">Thank you</p>
+    <h1 class="ty-heading reveal d1">送信が完了しました。</h1>
+    <p class="ty-body reveal d2">
+      お問い合わせいただきありがとうございます。<br>
+      内容を確認の上、通常2営業日以内にご返答いたします。<br>
+      しばらくお待ちください。
+    </p>
+    <a href="index.html" class="ty-btn reveal d3">
+      トップへ戻る
+      <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M1 10L10 1M10 1H3M10 1V8" stroke="currentColor" stroke-width="1.3"/></svg>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 tomo design link. All rights reserved.</span>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="tokusho.html">特定商取引法</a>
+      <a href="terms.html">利用規約</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const burger = document.getElementById('nav-burger');
+const drawer = document.getElementById('nav-drawer');
+const scrim  = document.getElementById('nav-drawer-scrim');
+function closeDrawer(){burger.setAttribute('aria-expanded','false');drawer.classList.remove('is-open');drawer.setAttribute('aria-hidden','true');scrim.classList.remove('is-visible');scrim.hidden=true;document.body.style.overflow='';}
+function openDrawer(){burger.setAttribute('aria-expanded','true');drawer.classList.add('is-open');drawer.setAttribute('aria-hidden','false');scrim.hidden=false;requestAnimationFrame(()=>scrim.classList.add('is-visible'));document.body.style.overflow='hidden';}
+burger.addEventListener('click',()=>{burger.getAttribute('aria-expanded')==='true'?closeDrawer():openDrawer();});
+scrim.addEventListener('click',closeDrawer);
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeDrawer));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
+window.matchMedia('(min-width:1201px)').addEventListener('change',e=>{if(e.matches)closeDrawer();});
+
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
