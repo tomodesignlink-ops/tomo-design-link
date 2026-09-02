@@ -379,7 +379,7 @@ html,body{overflow-x:hidden;max-width:100%;}
       <p class="sec-en">Services</p>
       <p class="sec-ja">ことばを聴き、形にするまで。</p>
     </div>
-    <p class="services-desc">コーポレートサイト、ECサイト、LP作成まで。<br>必要に応じてコピーライターや写真家と協働しながら<br>一つ一つの想いを丁寧にWeb上で形にしていきます。</p>
+    <p class="services-desc">コーポレートサイト、ECサイト、LP作成まで。<br>言葉を聞き、想いを丁寧にWeb上で形にしていきます。</p>
   </div>
 
   <!-- Process ステップ -->
@@ -550,22 +550,13 @@ html,body{overflow-x:hidden;max-width:100%;}
     </div>
     <a href="journal.html" class="journal-all reveal">すべての記録 →</a>
   </div>
-  <div class="journal-list">
-    <a href="#" class="journal-item reveal d1">
-      <span class="journal-date">2026.06.22</span><span class="journal-tag">design</span>
-      <span class="journal-title">Web design / いけもん民泊</span>
-      <svg class="journal-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.2"/></svg>
-    </a>
-    <a href="https://arca-luce.pages.dev/" class="journal-item reveal d2">
-      <span class="journal-date">2026.06.01</span><span class="journal-tag">design</span>
-      <span class="journal-title">Web design / 介護美容 ARCA LUCE</span>
-      <svg class="journal-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.2"/></svg>
-    </a>
-    <a href="#" class="journal-item reveal d3">
-      <span class="journal-date">2026.03.15</span><span class="journal-tag">Start</span>
-      <span class="journal-title">tomo design link / 始動</span>
-      <svg class="journal-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.2"/></svg>
-    </a>
+  <!-- スプレッドシートから上位3件を動的生成 -->
+  <div class="journal-list" id="journal-list" aria-live="polite" aria-label="最新のジャーナル">
+    <div class="journal-loading" aria-hidden="true">
+      <span class="journal-loading__dot"></span>
+      <span class="journal-loading__dot"></span>
+      <span class="journal-loading__dot"></span>
+    </div>
   </div>
 </section>
 
@@ -928,6 +919,67 @@ document.querySelectorAll('.process-step').forEach(step => {
     if (document.hidden) { cancelAnimationFrame(raf); }
     else { raf = requestAnimationFrame(loop); }
   });
+})();
+</script>
+
+<style>
+/* ── Journal ローディングドット (index共用) ── */
+#journal .journal-loading{display:flex;align-items:center;gap:.5rem;padding:3rem 0;justify-content:center;}
+#journal .journal-loading__dot{width:5px;height:5px;border-radius:50%;background:var(--ink-lt);animation:jl-pulse 1.2s ease-in-out infinite;}
+#journal .journal-loading__dot:nth-child(2){animation-delay:.2s;}
+#journal .journal-loading__dot:nth-child(3){animation-delay:.4s;}
+@keyframes jl-pulse{0%,80%,100%{opacity:.2;}40%{opacity:1;}}
+#journal .journal-error{padding:2rem 0;font-size:.78rem;color:var(--ink-lt);line-height:2;}
+</style>
+
+<script>
+/* ════════════════════════════════════════════════════
+   index.html — Journal 最新3件をGASから取得
+   ※ journal.html と同じ GAS_URL を貼り付ける
+   ════════════════════════════════════════════════════ */
+(async () => {
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbzKDFZAq7CA9ho8shtB7Hv8U1cxdjj2v5SbtKuhPuV2QLZWEdr8DqjhEZ3tiEV_rLNf/exec';
+
+  const ARROW = `<svg class="journal-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.2"/></svg>`;
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  const list = document.getElementById('journal-list');
+  if (!list) return;
+
+  if (!GAS_URL || GAS_URL === 'YOUR_GAS_WEB_APP_URL_HERE') {
+    list.innerHTML = '<p class="journal-error">GAS_URL を設定してください（index.html 末尾）</p>';
+    return;
+  }
+
+  try {
+    const res = await fetch(GAS_URL);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const all = await res.json();
+    const rows = (Array.isArray(all) ? all : []).slice(0, 3); /* 上位3件のみ */
+
+    if (rows.length === 0) {
+      list.innerHTML = '<p class="journal-error">データがありません。</p>';
+      return;
+    }
+
+    const delays = ['d1','d2','d3'];
+    list.innerHTML = rows.map((r, i) => {
+      const ext = r.url && r.url !== '#' ? ' target="_blank" rel="noopener"' : '';
+      return `<a href="${esc(r.url||'#')}" class="journal-item reveal ${delays[i]}"${ext}>
+  <span class="journal-date">${esc(r.date)}</span>
+  <span class="journal-tag">${esc(r.tag)}</span>
+  <span class="journal-title">${esc(r.title)}</span>
+  ${ARROW}
+</a>`;
+    }).join('\n');
+
+  } catch (e) {
+    console.error('[Journal index] GAS fetch error:', e);
+    list.innerHTML = '<p class="journal-error">データの読み込みに失敗しました。</p>';
+  }
 })();
 </script>
 </body>
